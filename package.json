@@ -1,0 +1,19 @@
+{
+  "name": "graph-project",
+  "version": "1.0.0",
+  "description": "A ETL Tool to migrate data from SQL DBMS to Graph Databases",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbelClapton/graph-project.git"
+  },
+  "author": "Abel Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbelClapton/graph-project/issues"
+  },
+  "homepage": "https://github.com/AbelClapton/graph-project#readme"
+}
