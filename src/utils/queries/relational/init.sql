@@ -1,25 +1,25 @@
--- NOTE: This needs testing
+CREATE OR REPLACE DATABASE test;
+USE test;
 
-CREATE DATABASE test;
-
-CREATE TABLE person(
-	id		INT					NOT NULL,
-	name	VARCHAR(20) NOT NULL,
+CREATE OR REPLACE TABLE persons (
+	id		INT					AUTO_INCREMENT NOT NULL,
+	name	VARCHAR(20)								 NOT NULL,
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE friends(
+CREATE OR REPLACE TABLE friends (
 	person_a	INT NOT NULL,
-	person_b	INT NOT NULL,
+	person_b	INT NOT NULL
 );
 
-CREATE TABLE father_son(
+CREATE OR REPLACE TABLE father_son (
 	person_a	INT NOT NULL,
-	person_b	INT NOT NULL,
+	person_b	INT NOT NULL
 );
 
 -- lista de personas 
-INSERT INTO person VALUES (
+INSERT INTO persons (name)
+VALUES
 	("Julio Yalord"),
 	("Hector Letton"),
 	("Elva Gino"),
@@ -39,11 +39,11 @@ INSERT INTO person VALUES (
 	("Viviana Mena"),
 	("Alberto Parede"),
 	("Miguel Ledesma"),
-	("Juana Fuente")
-);
+	("Juana Fuente");
 
 -- amigos
-INSERT INTO friends VALUES (
+INSERT INTO friends
+VALUES 
 	(1, 11),
 	(2, 12),
 	(3, 13),
@@ -53,11 +53,11 @@ INSERT INTO friends VALUES (
 	(7, 17),
 	(8, 18),
 	(9, 19),
-	(10, 20),
-);
+	(10, 20);
 
 -- padre-hijo
-INSERT INTO father_son VALUES (
+INSERT INTO father_son
+VALUES
 	(1, 5),
 	(1, 6),
 	(2, 7),
@@ -73,10 +73,4 @@ INSERT INTO father_son VALUES (
 	(7, 17),
 	(7, 18),
 	(8, 19),
-	(8, 20)
-);
--- hermanos
-INSERT INTO brothers VALUES (
-	(1, 2),
-	(3, 4),
-);
+	(8, 20);

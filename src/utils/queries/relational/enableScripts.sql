@@ -1,0 +1,3 @@
+CREATE USER 'graph'@'localhost' IDENTIFIED BY 'graph';
+GRANT ALL PRIVILEGES ON *.* TO 'graph'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;

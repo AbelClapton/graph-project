@@ -1,11 +1,13 @@
 import { config } from 'dotenv'
-import { closeDriver, getDriver, initDriver } from '../Neo4jDriver.js'
+import Neo4jDriver from '../Neo4jDriver.js'
+
+let neo4jDriver
 
 describe('01. Initiate Driver', () => {
 	beforeAll(() => config())
-	afterAll(() => closeDriver())
+	afterAll(() => neo4jDriver.close())
 
-	it('Should create a driver instance and connect to server', async () => {
+	it('Should create a driver instance and connect to server', () => {
 		const {
 			NEO4J_URI,
 			NEO4J_USERNAME,
@@ -16,18 +18,17 @@ describe('01. Initiate Driver', () => {
 		expect(NEO4J_USERNAME).toBeDefined()
 		expect(NEO4J_PASSWORD).toBeDefined()
 
-		await initDriver(NEO4J_URI, NEO4J_USERNAME, NEO4J_PASSWORD)
+		neo4jDriver = new Neo4jDriver(NEO4J_URI, NEO4J_USERNAME, NEO4J_PASSWORD)
 	})
 
 	it('Driver has been instantiated', () => {
-		const driver = getDriver()
-		expect(driver).toBeDefined()
+		expect(neo4jDriver.driver).toBeDefined()
 
-		expect(driver.constructor.name).toEqual('Driver')
+		expect(neo4jDriver.driver.constructor.name).toEqual('Driver')
 	})
 
 	it('Driver can verify connectivity', () => {
-		const driver = getDriver()
+		const driver = neo4jDriver.driver
 		expect(driver).toBeDefined()
 		expect(driver.constructor.name).toEqual('Driver')
 

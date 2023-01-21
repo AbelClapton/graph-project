@@ -1,9 +1,5 @@
 import { Sequelize } from 'sequelize'
 
-// TODO: Improve constructor
-// TODO: Add docstrings
-// TODO: Include Logger calls
-
 export default class SQLDriver {
 	SQLDriver(host, port, database, username, password, dialect) {
 		this.driver = new Sequelize(database, username, password, {

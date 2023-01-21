@@ -8,7 +8,7 @@ const app = express()
 const port = process.env.PORT
 
 app.get("/", (_, res) => {
-	res.send('Express + Yes Server ')
+	res.send('Express + Nodemon Server ')
 })
 
 app.listen(port, () => {

@@ -6,7 +6,8 @@
 	"type": "module",
 	"scripts": {
 		"dev": "nodemon index.js",
-		"test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+		"test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+		"mysql:init": "mysql --user='graph' --password='graph' --database='graph' < ./src/utils/queries/relational/init.sql"
 	},
 	"repository": {
 		"type": "git",
