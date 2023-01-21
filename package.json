@@ -1,32 +1,35 @@
 {
-  "name": "graph-project",
-  "version": "1.0.0",
-  "description": "A ETL Tool to migrate data from SQL DBMS to Graph Databases",
-  "main": "index.js",
-  "scripts": {
-    "build": "npx tsc",
-    "start": "node dist/index.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q ./dist/index.cjs\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AbelClapton/graph-project.git"
-  },
-  "author": "Abel Rodriguez",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AbelClapton/graph-project/issues"
-  },
-  "homepage": "https://github.com/AbelClapton/graph-project#readme",
-  "dependencies": {
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2"
-  },
-  "devDependencies": {
-    "@types/express": "^4.17.14",
-    "@types/node": "^18.11.7",
-    "concurrently": "^7.5.0",
-    "nodemon": "^2.0.20",
-    "typescript": "^4.8.4"
-  }
+	"name": "graph-project",
+	"version": "1.0.0",
+	"description": "A ETL Tool to migrate data from SQL DBMS to Graph Databases",
+	"main": "index.ts",
+	"type": "module",
+	"scripts": {
+		"dev": "nodemon index.js",
+		"test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AbelClapton/graph-project.git"
+	},
+	"author": "Abel Rodriguez",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/AbelClapton/graph-project/issues"
+	},
+	"homepage": "https://github.com/AbelClapton/graph-project#readme",
+	"dependencies": {
+		"dotenv": "^16.0.3",
+		"express": "^4.18.2",
+		"mysql2": "^3.0.1",
+		"neo4j-driver": "^5.4.0",
+		"sequelize": "^6.28.0"
+	},
+	"devDependencies": {
+		"eslint": "^8.32.0",
+		"nodemon": "^2.0.20",
+		"prettier": "2.8.3",
+		"jest": "^29.3.1",
+		"eslint-config-prettier": "^8.6.0"
+	}
 }
