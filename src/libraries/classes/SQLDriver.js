@@ -1,25 +1,17 @@
+import Driver from './Driver.js'
 import { Sequelize } from 'sequelize'
 
-export default class SQLDriver {
-	SQLDriver(host, port, database, username, password, dialect) {
-		this.driver = new Sequelize(database, username, password, {
-			host, port, dialect
-		});
+export default class SQLDriver extends Driver {
+	constructor(options = {}) {
+		super()
+		this.driver = new Sequelize(options);
 	}
 
-	authenticate() {
-		this.driver.authenticate()
-			.then(res => {
-				console.log(JSON.stringify(res))
-				return res
-			})
-			.catch(err => {
-				console.log(err.message)
-				return err
-		})
+	close() {
+		this.driver.close()
 	}
 
-	query() {
-
+	async verifyConnectivity() {
+		return await this.driver.authenticate()
 	}
 }

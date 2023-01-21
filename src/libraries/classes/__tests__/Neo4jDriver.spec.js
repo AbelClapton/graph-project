@@ -8,11 +8,7 @@ describe('01. Initiate Driver', () => {
 	afterAll(() => neo4jDriver.close())
 
 	it('Should create a driver instance and connect to server', () => {
-		const {
-			NEO4J_URI,
-			NEO4J_USERNAME,
-			NEO4J_PASSWORD,
-		} = process.env
+		const { NEO4J_URI, NEO4J_USERNAME, NEO4J_PASSWORD } = process.env
 
 		expect(NEO4J_URI).toBeDefined()
 		expect(NEO4J_USERNAME).toBeDefined()
@@ -23,7 +19,6 @@ describe('01. Initiate Driver', () => {
 
 	it('Driver has been instantiated', () => {
 		expect(neo4jDriver.driver).toBeDefined()
-
 		expect(neo4jDriver.driver.constructor.name).toEqual('Driver')
 	})
 
@@ -32,12 +27,13 @@ describe('01. Initiate Driver', () => {
 		expect(driver).toBeDefined()
 		expect(driver.constructor.name).toEqual('Driver')
 
-		driver.verifyConnectivity()
+		driver
+			.verifyConnectivity()
 			.then(() => {
 				expect(true).toEqual(true)
 			})
-			.catch(e => {
-				expect(e).toBeUndefined('Unable to verify connectivity')
+			.catch((e) => {
+				expect(e).toBeUndefined()
 			})
 	})
 })
