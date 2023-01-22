@@ -1,5 +1,5 @@
-CREATE OR REPLACE DATABASE test;
-USE test;
+CREATE OR REPLACE DATABASE graph;
+USE graph;
 
 CREATE OR REPLACE TABLE persons (
 	id		INT					AUTO_INCREMENT NOT NULL,
@@ -9,12 +9,16 @@ CREATE OR REPLACE TABLE persons (
 
 CREATE OR REPLACE TABLE friends (
 	person_a	INT NOT NULL,
-	person_b	INT NOT NULL
+	person_b	INT NOT NULL,
+	FOREIGN KEY (person_a) REFERENCES persons(id),
+	FOREIGN KEY (person_b) REFERENCES persons(id)
 );
 
 CREATE OR REPLACE TABLE father_son (
 	person_a	INT NOT NULL,
-	person_b	INT NOT NULL
+	person_b	INT NOT NULL,
+	FOREIGN KEY (person_a) REFERENCES persons(id),
+	FOREIGN KEY (person_b) REFERENCES persons(id)
 );
 
 -- lista de personas 

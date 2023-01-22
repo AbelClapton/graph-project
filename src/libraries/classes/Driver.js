@@ -1,5 +1,7 @@
-export default class Driver {
+class Driver {
 	constructor() {}
 	verifyConnectivity() {}
 	close() {}
 }
+
+module.exports = Driver

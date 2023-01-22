@@ -3,11 +3,10 @@
 	"version": "1.0.0",
 	"description": "A ETL Tool to migrate data from SQL DBMS to Graph Databases",
 	"main": "index.ts",
-	"type": "module",
 	"scripts": {
 		"dev": "nodemon index.js",
-		"test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll",
-		"mysql:init": "mysql --user='graph' --password='graph' --database='graph' < ./src/utils/queries/relational/init.sql"
+		"test": "jest --watchAll",
+		"mysql:init": "mysql --user='graph' --password='graph' < ./src/utils/queries/relational/init.sql"
 	},
 	"repository": {
 		"type": "git",

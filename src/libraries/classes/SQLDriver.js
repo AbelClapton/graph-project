@@ -1,10 +1,10 @@
-import Driver from './Driver.js'
-import { Sequelize } from 'sequelize'
+const Driver = require('./Driver.js')
+const { Sequelize } = require('sequelize')
 
-export default class SQLDriver extends Driver {
+class SQLDriver extends Driver {
 	constructor(options = {}) {
 		super()
-		this.driver = new Sequelize(options);
+		this.driver = new Sequelize(options)
 	}
 
 	close() {
@@ -14,4 +14,10 @@ export default class SQLDriver extends Driver {
 	async verifyConnectivity() {
 		return await this.driver.authenticate()
 	}
+
+	async query(query, opts = {}) {
+		return await this.driver.query(query, opts)
+	}
 }
+
+module.exports = SQLDriver

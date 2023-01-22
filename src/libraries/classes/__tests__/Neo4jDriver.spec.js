@@ -1,5 +1,5 @@
-import { config } from 'dotenv'
-import Neo4jDriver from '../Neo4jDriver.js'
+const config = require('dotenv')
+const Neo4jDriver = require('../Neo4jDriver.js')
 
 let neo4jDriver
 

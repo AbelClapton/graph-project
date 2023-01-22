@@ -1,5 +1,5 @@
-import { config } from 'dotenv'
-import SQLDriver from '../SQLDriver.js'
+const { config } = require('dotenv')
+const SQLDriver = require('../SQLDriver.js')
 
 let driver
 
